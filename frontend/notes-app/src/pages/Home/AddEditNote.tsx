@@ -7,6 +7,38 @@ const AddEditNote = ({ noteData, type, onClose }) => {
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
     const [tags, setTags] = useState([])
+
+    const [error, setError] =  useState<string | null>(null);
+
+    //Add a Note
+    const addNewNote = () => {
+
+    }
+
+    //Edit existing note
+    const editNote = () => {
+        
+    }
+
+    const handleAddNote = () => {
+        if(!title){
+            setError("Please enter a title")
+            return;
+        }
+
+        if(!content){
+            setError("Please enter the content")
+            return;
+        }
+
+        setError("")
+
+        if(type === 'edit'){
+            editNote()
+        } else {
+            addNewNote()
+        }
+    }
   return (
     <div className='relative'>
         <button className='w-10 h-10 roounded-full flex items-center justify-center absolute -top-3 -right-3 hover:bg-slate-50' onClick={onClose}>
@@ -39,7 +71,9 @@ const AddEditNote = ({ noteData, type, onClose }) => {
             <TagInput tags={tags} setTags={setTags} />
         </div>
 
-        <button className='btn-primary font-medium mt-3 p-3' onClick={() => {}}>Add</button>
+        {error && <p className='text-xs text-red-500 pt-4'>{error}</p>}
+   
+        <button className='btn-primary font-medium mt-3 p-3' onClick={handleAddNote}>Add</button>
     </div>
   )
 }
