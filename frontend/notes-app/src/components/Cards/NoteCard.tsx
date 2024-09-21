@@ -18,11 +18,11 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
             <div className='text-xs text-slate-500'>{tags}</div>
             <div className='flex items-center gap-2'>
                 <MdCreate
-                    className='icon-btn hover:text-green-600'
+                    className='icon-btn hover:text-primary transition-all'
                     onClick={onEdit}
                 />
                 <MdDelete
-                    className='icon-btn hover:text-red-500'
+                    className='icon-btn hover:text-red-500 transition-all'
                     onClick={onDelete}
                 />
             </div>
